@@ -1,21 +1,18 @@
 const { MovieModel } = require("../data-base-models/Movie");
 
 const getAllMovies = async () => {
-  const movies = await MovieModel.find({}).populate("leadCharacter");
+  const movies = await MovieModel.find({}).populate({ path: "leadCharacter", populate: { path: "superPowers" } });
 
   return movies;
 };
 
-const getMovieById = async (args) => {
-  const movie = await MovieModel.findOne({ _id: args._id }).populate("leadCharacter");
+const getMovieById = async (movieId) => {
+  const movie = await MovieModel.findOne({ _id: movieId }).populate({
+    path: "leadCharacter",
+    populate: { path: "superPowers" }
+  });
 
   return movie;
 };
 
-const linkLeadCharacterToMovie = async (args) => {
-  await MovieModel.updateOne({ _id: args.movieId }, { $set: { leadCharacter: args.superHeroId } });
-
-  return `Operation completed successfully.`;
-};
-
-module.exports = { getAllMovies, getMovieById, linkLeadCharacterToMovie };
+module.exports = { getAllMovies, getMovieById };
