@@ -1,4 +1,4 @@
-const { MovieModel } = require("../database-models/Movie");
+const { MovieModel } = require("../data-base-models/Movie");
 const { Movies } = require("../sample-data/MoviesData");
 
 const createSampleMoviesScript = async () => {

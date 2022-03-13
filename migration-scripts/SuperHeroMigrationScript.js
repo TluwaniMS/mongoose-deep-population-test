@@ -1,4 +1,4 @@
-const { SuperHeroModel } = require("../database-models/SuperHero");
+const { SuperHeroModel } = require("../data-base-models/SuperHero");
 const { SuperHeroes } = require("../sample-data/SuperHeroesData");
 
 const createSampleSuperHeroesScript = async () => {

@@ -1,4 +1,4 @@
-const { SuperPowerModel } = require("../database-models/SuperPower");
+const { SuperPowerModel } = require("../data-base-models/SuperPower");
 const { SuperPowers } = require("../sample-data/SuperPowersData");
 
 const createSampleSuperPowersScript = async () => {
